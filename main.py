@@ -29,3 +29,55 @@ class Profile():
         else:
             
             print('senha invalida')
+
+
+while True:
+
+    print(f"""
+    |...................................|
+    |                                   |  
+    |    1. funcionalidade 1;           |
+    |    2. funcionalidade 2;           |
+    |    3. funcionalidade 3;           |
+    |    4. Criar e gerenciar perfil;   |
+    |    5. funcionalidade 5;           |
+    |    6. funcionalidade 6;           |
+    |    7. funcionalidade 7;           |
+    |    8. funcionalidade 8;           |
+    |    9. funcionalidade 9;           |
+    |    10. funcionalidade 10;         |
+    |    0. Sair                        |
+    |                                   |
+    |...................................|
+        """)
+
+    action = int(input('funcionalidade: '))
+
+    if action == 4:
+        
+        print("""
+              
+        | ------------------- |    
+        | 1. criar usuario    |
+        | 2. editar usuario   |
+        | ------------------- |
+              
+              """)
+
+        choose = int(input(': '))
+
+        if choose == 1:
+
+            name = input("digite o nome do seu usuario: ")
+            password = input("digite sua senha: ")
+
+            newUser = Profile(name, password)
+
+            print(f"Usuário {newUser.name} criado com sucesso!")
+
+        if choose == 2:
+            print('...em construcao...')
+            
+    if action == 0:
+        break
+    
