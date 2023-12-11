@@ -1,0 +1,4 @@
+# Arquivos a serem ignorados pelo Git
+
+# Ignorar o arquivo teste.py
+teste.py

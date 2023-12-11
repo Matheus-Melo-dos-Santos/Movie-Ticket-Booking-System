@@ -1,3 +1,6 @@
+import json
+import requests
+
 class Profile():
     
     def __init__ (self, name, password):
