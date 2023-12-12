@@ -15,3 +15,7 @@ Atividades realizadas:
 
         Foi utlizado a API "http://www.omdbapi.com/" para obter os dados de filmes que são informados nesta funcionalidade. 
         Atualmente são exibidos apenas 4 filmes. 
+
+11/12/2023
+
+    - Atualização da funcionalidade 4: Os dados ficam armazenados num arquivo .json
