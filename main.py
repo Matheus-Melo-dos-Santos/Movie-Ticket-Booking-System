@@ -3,36 +3,35 @@ import requests
 
 class Profile():
     
-    def __init__ (self, name, password):
+    def __init__ (self, name, password, email):
         self.name = name
         self.password = password
+        self.email = email
+    
+    def toDictionary(self):
+        return{
+
+            "name": self.name,
+            "email": self.email,
+            "password": self.password
+
+        }
         
     def changePassword(self):
         
-        enableChange = input('Digite sua senha: ')
-        
-        if enableChange == self.password:
-            
-            newPassword = input('Digite sua nova senha: ')
-            self.password = newPassword
-            print('Senha atualizada com sucesso!')
-            
-        else:
-            print('senha invalida, tente novamente.')
+        newPassword = input('Digite sua nova senha: ')
+        self.password = newPassword
+ 
     
     def changeName(self):
         
-        enableChange = input('Digite sua senha: ')
-        
-        if enableChange == self.password:
-            
-            newName = input('digite o novo nome: ')
-            self.name = newName
-            
-        else:
-            
-            print('senha invalida')
+        newName = input('digite o novo nome: ')
+        self.name = newName
+    
+    def changeEmail(self):
 
+        newEmail = input('digite seu email: ')
+        self.email = newEmail
 
 def getMovieDetails(titulo):
 
@@ -87,6 +86,10 @@ def showNameOfMovies():
 
 while True:
 
+    Users = []
+    with open ("profiles.json", "r") as file:
+        Users = json.load(file)
+
     print(f"""
     |....................................       |
     |                                           |  
@@ -126,14 +129,37 @@ while True:
         if choose == 1:
 
             name = input("digite o nome do seu usuario: ")
+            email = input("digite seu email: ")
             password = input("digite sua senha: ")
 
-            newUser = Profile(name, password)
+            newUser = Profile(name, password, email)
 
+            Users.append(newUser.toDictionary())
+
+            with open("profiles.json", 'w') as file:
+                json.dump(Users, file)
+            
             print(f"Usuário {newUser.name} criado com sucesso!")
 
         if choose == 2:
-            print('...em construcao...')
+            
+            name = input("digite o nome do seu usuario: ")
+            password = input("digite sua senha: ")
+
+            for i in range(0, len(Users)):
+                if Users[i]["name"] == name and Users[i]["password"] == password:
+
+                    editUser = Profile(Users[i]["name"], Users[i]["password"], Users[i]["email"])
+
+                    editUser.changeName()
+                    editUser.changePassword()
+                    editUser.changeEmail()
+
+                    Users[i] = editUser.toDictionary()
+
+                    with open ("profiles.json", 'w') as file:
+                        json.dump(Users, file)
+
         
     
     if action == 9:
