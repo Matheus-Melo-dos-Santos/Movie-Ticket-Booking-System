@@ -18,4 +18,10 @@ Atividades realizadas:
 
 11/12/2023
 
-    - Atualização da funcionalidade 4: Os dados ficam armazenados num arquivo .json
+    - Atualização da funcionalidade 4: Os dados ficam armazenados num arquivo .json   
+    
+13/12/2023
+
+   - Entrega da primeira versão do projeto. 
+   Funcionalidades feitas: 1, 4.
+   
